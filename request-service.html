@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Service - DentoRX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">DentoRX</a>
+                <div class="nav-buttons">
+                     <a href="dashboard-dentist.html" class="btn btn-dentist">Back to Dashboard</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="dashboard-header">
+             <h1 id="lab-name-title" class="hero-title" style="font-size: 42px;">Request Service</h1>
+             <p class="hero-subtitle" style="margin-bottom: 0;">Fill out the form below to submit your digital Rx and case files directly to the lab.</p>
+        </div>
+
+        <div class="request-service-container">
+            <aside class="lab-info-sidebar">
+                <div class="sidebar-header">
+                    <h3 id="lab-name-sidebar">Lab Name</h3>
+                </div>
+                <div class="sidebar-content">
+                    <h4>Lab Details</h4>
+                    <p id="lab-location-sidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                        <span>Lab Location</span>
+                    </p>
+                    
+                    <h4>Services:</h4>
+                    <ul id="lab-services-sidebar" class="service-list-sidebar">
+                        </ul>
+                </div>
+            </aside>
+            
+            <section class="rx-form-main">
+                <h3>Submit Digital Rx</h3>
+                <form id="rx-form">
+                    <div class="form-group">
+                        <label for="patient-name">Patient Name / ID</label>
+                        <input type="text" id="patient-name" placeholder="e.g., Priya Sharma" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="case-type">Case Type / Product</label>
+                        <select id="case-type" required>
+                            <option value="">-- Select a Product --</option>
+                            <option value="Zirconia Crown">Zirconia Crown</option>
+                            <option value="E-max Veneer">E-max Veneer</option>
+                            <option value="Implant">Implant</option>
+                            <option value="Denture">Denture</option>
+                             <option value="Other">Other (Specify in notes)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rx-file">Upload Rx & Case Files (.pdf, .stl)</label>
+                        <label class="file-upload-label" for="rx-file">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/></svg>
+                           <span id="file-upload-text">Choose Files...</span>
+                        </label>
+                        <input type="file" id="rx-file" multiple required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes & Special Instructions (e.g., shade, material)</label>
+                        <textarea id="notes" rows="5" placeholder="Please use high-translucency zirconia, shade A2..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit-rx">Submit Case to Lab</button>
+                </form>
+            </section>
+        </div>
+    </main>
+       <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3 class="logo">DentoRX</h3>
+            <p>The leading digital marketplace connecting dentists with premier dental laboratories across the globe.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Find a Lab</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="dashboard-dentist.html">My Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Lab Verification T&C</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+        <div class="footer-contact">
+             <h4>Contact Us</h4>
+             <p>support@dentorx.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 DentoRX. All Rights Reserved.</p>
+    </div>
+</footer>
+    <script src="app.js"></script>
+
+</body>
+</html>

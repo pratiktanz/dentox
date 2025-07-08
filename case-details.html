@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Details - DentoRX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav><a href="index.html" class="logo">DentoRX</a><a href="dashboard-dentist.html" class="btn btn-dentist">Back to Dashboard</a></nav>
+        </div>
+    </header>
+
+    <main class="dashboard-container container">
+        <h1 class="section-title">Case Details: #DENT701</h1>
+        <div class="case-details-grid">
+            <div class="case-info-panel">
+                <h4>Case Information</h4>
+                <p><strong>Patient:</strong> R. Sharma</p>
+                <p><strong>Product:</strong> Zirconia Crown</p>
+                <p><strong>Lab:</strong> Pune Precision Dental</p>
+                <p><strong>Status:</strong> In Production</p>
+                <p><strong>Est. Delivery:</strong> July 10, 2025</p>
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
+                <h4>Case Files</h4>
+                <p>📄 RX_Form_RSharma.pdf</p>
+                <p>📄 Upper_Arch.stl</p>
+                <p>📄 Lower_Arch.stl</p>
+            </div>
+            <div class="chat-panel">
+                <h4>Communication Hub</h4>
+                <div class="chat-window" id="chat-window">
+                    <div class="chat-message lab">Hi Dr. Smith, we've received the case files for R. Sharma. The margins look clear. We are starting production.</div>
+                    <div class="chat-message dentist">Thanks for the update. Please ensure a high-translucency zirconia is used. Shade A2.</div>
+                    <div class="chat-message lab">Noted. High-translucency, shade A2. We will keep you updated.</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input-text" placeholder="Type your message...">
+                    <button id="send-chat-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+    <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3 class="logo">DentoRX</h3>
+            <p>The leading digital marketplace connecting dentists with premier dental laboratories across the globe.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Find a Lab</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="dashboard-dentist.html">My Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Lab Verification T&C</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+        <div class="footer-contact">
+             <h4>Contact Us</h4>
+             <p>support@dentorx.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 DentoRX. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

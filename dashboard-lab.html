@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Control Center - DentoRX</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">DentoRX</a>
+                <div class="nav-buttons">
+                    <span style="align-self: center; font-weight: 700;">Welcome, Pune Precision Dental!</span>
+                    <a href="#" class="btn btn-dentist" style="margin-left: 15px;">My Profile</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="lab-dashboard-container" class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="dashboard-header">
+            <h1 class="hero-title" style="font-size: 42px;">Lab Control Center</h1>
+        </div>
+        
+        <div class="dashboard-tabs">
+            <button class="tab-link active" onclick="openTab(event, 'case-management')">Case Management</button>
+            <button class="tab-link" onclick="openTab(event, 'billing')">Billing & Invoices</button>
+            <button class="tab-link" onclick="openTab(event, 'analytics')">Analytics</button>
+        </div>
+
+        <div id="case-management" class="tab-content active">
+             <div class="stats-container" style="margin-top: 30px;">
+                <div class="stat-card"><div class="stat-icon">📥</div><div class="stat-number" id="stat-new-orders">0</div><div class="stat-title">New Orders</div></div>
+                <div class="stat-card"><div class="stat-icon">⚙️</div><div class="stat-number" id="stat-in-production">0</div><div class="stat-title">In Production</div></div>
+                <div class="stat-card"><div class="stat-icon" style="color: var(--attention-color);">⚠️</div><div class="stat-number">1</div><div class="stat-title">Requires Attention</div></div>
+                <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-number">47</div><div class="stat-title">Completed This Month</div></div>
+            </div>
+            <h3 style="color: var(--primary-color); margin: 30px 0 20px 0;">Case Pipeline</h3>
+            <div class="lab-table-container">
+                <table class="dashboard-table" id="lab-orders-table">
+                    <thead><tr><th>Order ID</th><th>Dentist</th><th>Priority</th><th>Due Date</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="billing" class="tab-content">
+            <div class="stats-container" style="margin-top: 30px;">
+                <div class="stat-card"><div class="stat-icon">💰</div><div class="stat-number" id="stat-awaiting-payment">₹0</div><div class="stat-title">Awaiting Payment</div></div>
+                <div class="stat-card"><div class="stat-icon">🧾</div><div class="stat-number" id="stat-paid-month">₹0</div><div class="stat-title">Paid This Month</div></div>
+                <div class="stat-card"><div class="stat-icon" style="color: var(--attention-color);">❗️</div><div class="stat-number" id="stat-overdue">₹0</div><div class="stat-title">Overdue</div></div>
+            </div>
+             <h3 style="color: var(--primary-color); margin: 30px 0 20px 0;">Invoice Management</h3>
+            <div class="lab-table-container">
+                <table class="dashboard-table" id="invoices-table">
+                    <thead><tr><th>Invoice ID</th><th>Dentist</th><th>Order ID</th><th>Date</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="analytics" class="tab-content">
+            <div class="analytics-grid"><div class="chart-container"><h3>Monthly Revenue (Last 6 Months)</h3><canvas id="monthlyRevenueChart"></canvas></div><div class="chart-container"><h3>Client Mix</h3><canvas id="clientMixChart"></canvas></div></div>
+            <div class="analytics-grid" style="grid-template-columns: 1fr;"><div class="chart-container"><h3>Most Ordered Products</h3><canvas id="topProductsChart"></canvas></div></div>
+        </div>
+        
+    </main>
+    
+   <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3 class="logo">DentoRX</h3>
+            <p>The leading digital marketplace connecting dentists with premier dental laboratories across the globe.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Find a Lab</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="dashboard-dentist.html">My Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Lab Verification T&C</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+             <h4>Contact Us</h4>
+             <p>support@dentorx.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 DentoRX. All Rights Reserved.</p>
+    </div>
+</footer>
+    <script src="app.js"></script>
+</body>
+</html>

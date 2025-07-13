@@ -973,3 +973,52 @@ label.required::after {
         opacity: 1;
     }
 }
+#back-to-products{
+    width: 200px; 
+    padding: 16px; 
+    background: var(--accent-gradient); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 18px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: all var(--transition-speed); 
+}
+#back-to-products:hover { 
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+#implant-modal-cancel{
+    width: 80px; 
+    padding: 16px; 
+    background: var(--accent-gradient); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 12px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: all var(--transition-speed); 
+}
+#implant-modal-cancel:hover { 
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+#implant-modal-add{
+    width: 80px; 
+    padding: 16px; 
+    background: var(--accent-gradient); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 12px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: all var(--transition-speed); 
+}
+#implant-modal-add:hover { 
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+

@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================================
     // LOGIC FOR REQUEST SERVICE PAGE (request-service.html)
     // ===================================================================
-    if(document.getElementById('rx-form')) {
+ if(document.getElementById('manual-rx-form')) {
         const urlParams = new URLSearchParams(window.location.search);
         const labId = parseInt(urlParams.get('labId'));
         const lab = labsData.find(l => l.id === labId);
@@ -292,46 +292,99 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('lab-name-title').textContent = `Request Service from ${lab.name}`;
         }
 
+        // --- File Upload Form Logic ---
         const rxFileInput = document.getElementById('rx-file');
         const fileUploadText = document.getElementById('file-upload-text');
-
-        rxFileInput.addEventListener('change', () => {
-            if (rxFileInput.files.length > 0) {
-                fileUploadText.textContent = rxFileInput.files.length === 1 ? rxFileInput.files[0].name : `${rxFileInput.files.length} files selected`;
-            } else {
-                fileUploadText.textContent = 'Choose Files...';
-            }
+        if(rxFileInput){
+            rxFileInput.addEventListener('change', () => {
+                fileUploadText.textContent = rxFileInput.files.length > 0 ? `${rxFileInput.files.length} files selected` : 'Choose Files...';
+            });
+        }
+        document.getElementById('rx-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Rx Submitted Successfully!');
+            window.location.href = 'dashboard-dentist.html';
         });
 
-        document.getElementById('rx-form').addEventListener('submit', (e) => {
+        // --- Manual Form Logic & Tooth Grid ---
+        const toothGrid = document.getElementById('tooth-grid');
+        const implantModal = document.getElementById('implant-details-modal');
+        const implantModalClose = document.getElementById('implant-modal-close');
+        const implantModalCancel = document.getElementById('implant-modal-cancel');
+        const implantModalAdd = document.getElementById('implant-modal-add');
+        
+        if(toothGrid){
+            // --- Generate Tooth Grid ---
+            const quadrants = { UR: [8,7,6,5,4,3,2,1], UL: [1,2,3,4,5,6,7,8], LR: [8,7,6,5,4,3,2,1], LL: [1,2,3,4,5,6,7,8] };
+            Object.keys(quadrants).forEach(quad => {
+                const row = document.createElement('div');
+                row.className = 'tooth-row';
+                row.innerHTML = `<span>${quad}</span><div class="tooth-group"></div>`;
+                const group = row.querySelector('.tooth-group');
+                quadrants[quad].forEach(num => {
+                    const toothId = `t-${quad}-${num}`;
+                    label = document.createElement('label');
+                    label.className = 'tooth-label';
+                    label.setAttribute('for', toothId);
+                    label.innerHTML = `<span>${num}</span><input type="checkbox" id="${toothId}" data-quad="${quad}" data-num="${num}">`;
+                    group.appendChild(label);
+                });
+                toothGrid.appendChild(row);
+            });
+            
+            // --- Tooth Selection and Modal Trigger Logic ---
+            let lastClickedTooth;
+
+            const updateSelectedTeeth = () => {
+                const selected = { UR: [], UL: [], LR: [], LL: [] };
+                toothGrid.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                    selected[cb.dataset.quad].push(cb.dataset.num);
+                });
+                document.getElementById('selected-ur').textContent = selected.UR.sort((a,b)=>a-b).join(', ');
+                document.getElementById('selected-ul').textContent = selected.UL.sort((a,b)=>a-b).join(', ');
+                document.getElementById('selected-lr').textContent = selected.LR.sort((a,b)=>a-b).join(', ');
+                document.getElementById('selected-ll').textContent = selected.LL.sort((a,b)=>a-b).join(', ');
+            };
+
+            toothGrid.addEventListener('click', (e) => {
+                if (e.target.matches('input[type="checkbox"]')) {
+                    lastClickedTooth = e.target;
+                    if (lastClickedTooth.checked) {
+                        implantModal.style.display = 'block';
+                    }
+                    updateSelectedTeeth();
+                }
+            });
+
+            // --- Modal Close Logic ---
+            const closeModal = () => {
+                implantModal.style.display = 'none';
+                document.getElementById('implant-details-form').reset();
+            };
+            
+            implantModalClose.onclick = closeModal;
+            implantModalCancel.onclick = closeModal;
+            window.onclick = (event) => {
+              if (event.target == implantModal) {
+                closeModal();
+              }
+            };
+            
+            implantModalAdd.onclick = () => {
+                // Here you would normally save the form data associated with `lastClickedTooth.id`
+                // For now, we'll just close the modal.
+                console.log(`Adding details for tooth: ${lastClickedTooth.id}`);
+                closeModal();
+            };
+        }
+
+        document.getElementById('manual-rx-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Rx Submitted Successfully!\n\nYou would now be redirected to your dashboard to track the order.');
+            alert('Manual Rx Submitted Successfully!');
             window.location.href = 'dashboard-dentist.html';
         });
     }
 
-    // ===================================================================
-    // LOGIC FOR CASE DETAILS PAGE (case-details.html)
-    // ===================================================================
-    if(document.getElementById('chat-window')) {
-        const chatInput = document.getElementById('chat-input-text');
-        const sendButton = document.getElementById('send-chat-btn');
-        const chatWindow = document.getElementById('chat-window');
-
-        const sendMessage = () => {
-            const messageText = chatInput.value.trim();
-            if(messageText === '') return;
-            const messageEl = document.createElement('div');
-            messageEl.classList.add('chat-message', 'dentist');
-            messageEl.textContent = messageText;
-            chatWindow.appendChild(messageEl);
-            chatInput.value = '';
-            chatWindow.scrollTop = chatWindow.scrollHeight;
-        };
-        sendButton.addEventListener('click', sendMessage);
-        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
-    }
-    
     // ===================================================================
     // LOGIC FOR PRODUCTS PAGE (products.html)
     // ===================================================================

@@ -43,74 +43,215 @@
             </aside>
             
             <section class="rx-form-main">
-                <h3>Submit Digital Rx</h3>
-                <form id="rx-form">
-                    <div class="form-group">
-                        <label for="patient-name">Patient Name / ID</label>
-                        <input type="text" id="patient-name" placeholder="e.g., Priya Sharma" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="case-type">Case Type / Product</label>
-                        <select id="case-type" required>
-                            <option value="">-- Select a Product --</option>
-                            <option value="Zirconia Crown">Zirconia Crown</option>
-                            <option value="E-max Veneer">E-max Veneer</option>
-                            <option value="Implant">Implant</option>
-                            <option value="Denture">Denture</option>
-                             <option value="Other">Other (Specify in notes)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="rx-file">Upload Rx & Case Files (.pdf, .stl)</label>
-                        <label class="file-upload-label" for="rx-file">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/></svg>
-                           <span id="file-upload-text">Choose Files...</span>
-                        </label>
-                        <input type="file" id="rx-file" multiple required>
-                    </div>
-                    <div class="form-group">
-                        <label for="notes">Notes & Special Instructions (e.g., shade, material)</label>
-                        <textarea id="notes" rows="5" placeholder="Please use high-translucency zirconia, shade A2..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit-rx">Submit Case to Lab</button>
-                </form>
+                <div class="form-toggle-buttons">
+                    <button id="btn-show-upload" class="toggle-btn" onclick="showForm('upload')">Upload Rx File</button>
+                    <button id="btn-show-manual" class="toggle-btn active" onclick="showForm('manual')">Fill Form Manually</button>
+                </div>
+
+                <div id="upload-form-section" style="display: none;">
+                    <h3 style="margin-top: 30px;">Submit Digital Rx</h3>
+                    <form id="rx-form">
+                        <div class="form-group">
+                            <label for="upload-patient-name">Patient Name / ID</label>
+                            <input type="text" id="upload-patient-name" placeholder="e.g., Priya Sharma" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="upload-case-type">Case Type / Product</label>
+                            <select id="upload-case-type" required>
+                                <option value="">-- Select a Product --</option>
+                                <option value="Zirconia Crown">Zirconia Crown</option>
+                                <option value="E-max Veneer">E-max Veneer</option>
+                                <option value="Implant">Implant</option>
+                                <option value="Denture">Denture</option>
+                                 <option value="Other">Other (Specify in notes)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rx-file">Upload Rx & Case Files (.pdf, .stl)</label>
+                            <label class="file-upload-label" for="rx-file">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/></svg>
+                               <span id="file-upload-text">Choose Files...</span>
+                            </label>
+                            <input type="file" id="rx-file" multiple required>
+                        </div>
+                        <div class="form-group">
+                            <label for="upload-notes">Notes & Special Instructions (e.g., shade, material)</label>
+                            <textarea id="upload-notes" rows="5" placeholder="Please use high-translucency zirconia, shade A2..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-rx">Submit Case to Lab</button>
+                    </form>
+                </div>
+                
+                <div id="manual-form-section">
+                    <form id="manual-rx-form">
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Your Details</legend>
+                             <div class="form-group">
+                                <label for="doctor-name">Doctor's Name *</label>
+                                <input type="text" id="doctor-name" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="patient-name-manual">Patient's Name *</label>
+                                <input type="text" id="patient-name-manual" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="case-type-manual">Type of case *</label>
+                                <select id="case-type-manual" required>
+                                    <option value="">-- Please select --</option>
+                                    <option value="Surgical Guide">Submit data for Cad/cam Surgical Guide</option>
+                                    <option value="Crowns">Crowns & Bridge</option>
+                                    <option value="Implants">Implant Restoration</option>
+                                    <option value="Dentures">Prosthodontics</option>
+                                    <option value="Ortho">Orthodontics</option>
+                                </select>
+                            </div>
+                             <div class="form-group">
+                                <label class="checkbox-label"><input type="checkbox" id="retain-details"> Retain details for my next visit</label>
+                            </div>
+                        </fieldset>
+
+                        <h3 class="section-divider-title">SUBMIT DATA FOR CAD/CAM SURGICAL GUIDE</h3>
+
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Surgical Plan</legend>
+                            <div class="form-group">
+                                <label>Select implant site (s)*</label>
+                                 <div class="tooth-selection-grid-container" id="tooth-grid">
+                                    </div>
+                                <label style="margin-top:15px;">Total No. of teeth selected</label>
+                                <div class="selected-teeth-display" id="selected-teeth-output">
+                                    <div class="selected-quadrant"><b>UR:</b> <span id="selected-ur"></span></div>
+                                    <div class="selected-quadrant"><b>UL:</b> <span id="selected-ul"></span></div>
+                                    <div class="selected-quadrant"><b>LR:</b> <span id="selected-lr"></span></div>
+                                    <div class="selected-quadrant"><b>LL:</b> <span id="selected-ll"></span></div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Prosthetic Plan</legend>
+                            <div class="form-group radio-group-inline">
+                                <label class="required">Choose one</label>
+                                <div>
+                                    <label><input type="radio" name="prosthesis_level" required> Implant level prosthesis</label>
+                                    <label><input type="radio" name="prosthesis_level"> Abutment level prosthesis</label>
+                                </div>
+                                <div class="form-group" style="flex-grow: 1;">
+                                    <label for="abutment-type" class="required">Type of abutment</label>
+                                    <input type="text" id="abutment-type" required>
+                                </div>
+                            </div>
+                             <div class="form-group radio-group">
+                                <label class="required">Choose one</label>
+                                <div class="radio-grid">
+                                    <label><input type="radio" name="final_prosthesis" required> Screw retained prosthesis</label>
+                                    <label><input type="radio" name="final_prosthesis"> Cement retained prosthesis</label>
+                                    <label><input type="radio" name="final_prosthesis"> Screw+Cement retained</label>
+                                    <label><input type="radio" name="final_prosthesis"> Hybrid Denture with Acrylic</label>
+                                    <label><input type="radio" name="final_prosthesis"> Combination (Malo) Bridge</label>
+                                    <label><input type="radio" name="final_prosthesis"> PFM</label>
+                                    <label><input type="radio" name="final_prosthesis"> Overdenture</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Final Details</legend>
+                             <div class="form-group">
+                                <label for="additional-comments">Additional comments</label>
+                                <textarea id="additional-comments" rows="4" placeholder="Mention shade, special instructions, etc."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="dicom-link">Link to DICOM Raw Data - Using Google Drive/WeTransfer/YouSendIt/Dropbox</label>
+                                <input type="url" id="dicom-link" placeholder="https://...">
+                            </div>
+                            <div class="impression-inputs">
+                                 <div class="form-group">
+                                    <label for="impression-upper">Intra Oral Impressions: Upper</label>
+                                    <input type="text" id="impression-upper">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="impression-lower">Intra Oral Impressions: Lower</label>
+                                    <input type="text" id="impression-lower">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn-submit-rx">Submit Case to Lab</button>
+                    </form>
+                </div>
             </section>
         </div>
     </main>
-       <footer class="site-footer">
-    <div class="container footer-grid">
-        <div class="footer-about">
-            <h3 class="logo">DentoRX</h3>
-            <p>The leading digital marketplace connecting dentists with premier dental laboratories across the globe.</p>
-        </div>
-        <div class="footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="index.html">Find a Lab</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="dashboard-dentist.html">My Dashboard</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Lab Verification T&C</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-        <div class="footer-contact">
-             <h4>Contact Us</h4>
-             <p>support@dentorx.com</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 DentoRX. All Rights Reserved.</p>
-    </div>
-</footer>
-    <script src="app.js"></script>
 
+    <div id="implant-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="implant-modal-close">&times;</span>
+            <h3 class="modal-title">ADD DETAILS</h3>
+            <form id="implant-details-form">
+                <div class="form-group">
+                    <label for="implant-brand" class="required">Type of Implant (Company and brand)</label>
+                    <input type="text" id="implant-brand" required>
+                </div>
+                <div class="form-group">
+                    <label for="implant-size" class="required">Desired Implant diameter and length</label>
+                    <input type="text" id="implant-size" required>
+                </div>
+                <div class="form-group radio-group">
+                    <label class="required">Type of Implant Placement</label>
+                    <label><input type="radio" name="implant-placement" value="flap" required> With Flap</label>
+                    <label><input type="radio" name="implant-placement" value="flapless"> Flapless</label>
+                </div>
+                 <div class="form-group radio-group">
+                    <label class="required">Mouth Opening</label>
+                    <label><input type="radio" name="mouth-opening" value="normal" required> Normal</label>
+                    <label><input type="radio" name="mouth-opening" value="reduced"> Reduced</label>
+                </div>
+                <div class="form-group radio-group">
+                    <label class="required">Mobility of Teeth</label>
+                    <label><input type="radio" name="tooth-mobility" value="0" required> Grade 0</label>
+                    <label><input type="radio" name="tooth-mobility" value="1"> Grade 1</label>
+                    <label><input type="radio" name="tooth-mobility" value="2"> Grade 2</label>
+                    <label><input type="radio" name="tooth-mobility" value="3"> Grade 3</label>
+                </div>
+                 <div class="form-group radio-group">
+                    <label class="required">Additional surgical procedures</label>
+                    <label><input type="checkbox" name="surgical-proc" value="none"> None</label>
+                    <label><input type="checkbox" name="surgical-proc" value="extraction"> Extraction and Immediate Placement</label>
+                    <label><input type="checkbox" name="surgical-proc" value="shield"> Socket Shield</label>
+                    <label><input type="checkbox" name="surgical-proc" value="osteo"> Osteoplasty</label>
+                    <label><input type="checkbox" name="surgical-proc" value="sinus"> Sinus Graft</label>
+                    <label><input type="checkbox" name="surgical-proc" value="gbr"> GBR</label>
+                    <label><input type="checkbox" name="surgical-proc" value="tilt"> Tilt Distal Implants</label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-dentist" id="implant-modal-cancel">Cancel</button>
+                    <button type="button" class="btn btn-lab" id="implant-modal-add">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function showForm(formName) {
+            const uploadSection = document.getElementById('upload-form-section');
+            const manualSection = document.getElementById('manual-form-section');
+            const btnUpload = document.getElementById('btn-show-upload');
+            const btnManual = document.getElementById('btn-show-manual');
+
+            if (formName === 'upload') {
+                uploadSection.style.display = 'block';
+                manualSection.style.display = 'none';
+                btnUpload.classList.add('active');
+                btnManual.classList.remove('active');
+            } else {
+                uploadSection.style.display = 'none';
+                manualSection.style.display = 'block';
+                btnUpload.classList.remove('active');
+                btnManual.classList.add('active');
+            }
+        }
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>

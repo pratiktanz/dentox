@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentist Dashboard - DentoRX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">DentoRX</a>
+                <div class="nav-buttons">
+                    <a href="index.html" class="btn btn-dentist">Find a New Lab</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="dentist-dashboard-container" class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="doctor-profile">
+            <div class="profile-picture">
+                <img src="https://cdn-icons-png.freepik.com/512/6833/6833605.png" alt="Doctor Profile Picture">
+            </div>
+            <div class="profile-info">
+                <h2>Dr. Judy Sturm</h2>
+                <p><strong>Clinic:</strong> Yorkville Smile</p>
+                <p><strong>Contact:</strong> +1 416-967-4212</p>
+                <p><strong>Email:</strong> contact@judysturm.com</p>
+                <p><strong>Website:</strong> www.yorkvillesmiles.com</p>
+                <p><strong>Address:</strong> 77 Bloor St W #1202, Toronto, ON M5S 1M2, Canada</p>
+            </div>
+        </div>
+
+        <div class="dashboard-header">
+            <h1 class="hero-title" style="font-size: 42px;">My Dashboard</h1>
+            <p class="hero-subtitle">Track all your active cases and payments in one place.</p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">⚙️</div>
+                <div class="stat-number" id="stat-active-cases">0</div>
+                <div class="stat-title">Active Cases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="color: var(--attention-color);">⚠️</div>
+                <div class="stat-number" id="stat-awaiting-action">0</div>
+                <div class="stat-title">Awaiting My Action</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-number" id="stat-shipped">0</div>
+                <div class="stat-title">Shipped/In Transit</div>
+            </div>
+             <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-number" id="stat-payment-due">₹0</div>
+                <div class="stat-title">Payment Due</div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--primary-color); margin: 40px 0 20px 0;">All Cases</h3>
+        <div class="orders-list" id="orders-list">
+            </div>
+        
+    </main>
+    
+   <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3 class="logo">DentoRX</h3>
+            <p>The leading digital marketplace connecting dentists with premier dental laboratories across the globe.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Find a Lab</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="dashboard-dentist.html">My Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Lab Verification T&C</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+             <h4>Contact Us</h4>
+             <p>support@dentorx.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 DentoRX. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - DentoRX</title>
+    <link rel="stylesheet" href="style.css">
+</head><body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">DentoRX</a>
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Find a Lab</a></li>
+                        <li><a href="products.html" class="active">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                    <div class="nav-buttons">
+                        <a href="dashboard-dentist.html" class="btn btn-dentist">Doctor Dashboard</a>
+                        <a href="dashboard-lab.html" class="btn btn-lab">Lab Dashboard</a>
+                    </div>
+                </div>
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <div id="products-view">
+            <div class="dashboard-header">
+                <h1 class="hero-title" style="font-size: 42px;">Product & Service Catalog</h1>
+                <p class="hero-subtitle">Explore the comprehensive range of high-quality dental products our network of verified labs can produce.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-product="Crowns">
+                    <img src="https://teachdentalgroup.com/wp-content/uploads/2018/02/Dental-Crown-Treatment-in-Buffalo-NY-Teach-Dental-Group.jpg" alt="Crown and Bridge">
+                    <div class="product-content">
+                        <h3>Crowns & Bridges</h3>
+                        <p>High-strength, aesthetic restorations for single or multiple teeth. Available in a variety of materials to suit any clinical need.</p>
+                        <ul>
+                            <li>Zirconia (Monolithic & Layered)</li>
+                            <li>E-max (Lithium Disilicate)</li>
+                            <li>PFM (Porcelain-Fused-to-Metal)</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="product-card" data-product="Implants">
+                    <img src="https://www.turkeydentalclinic.com/wp-content/uploads/2023/08/implantdisnedir.jpg" alt="Dental Implants">
+                    <div class="product-content">
+                        <h3>Implant Restorations</h3>
+                        <p>Precision-milled abutments and crowns for all major implant systems. Surgical guides for accurate placement.</p>
+                         <ul>
+                            <li>Custom Abutments (Titanium & Zirconia)</li>
+                            <li>Screw-Retained Crowns</li>
+                            <li>Full-Arch Implant Bridges</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="product-card" data-product="Dentures">
+                    <img src="https://cdieindia.com/wp-content/uploads/2018/05/Economy-Dentures.jpg" alt="Dentures" style="object-fit: contain; padding: 20px;">
+                    <div class="product-content">
+                        <h3>Prosthodontics</h3>
+                        <p>Durable and life-like removable prosthetics, crafted for optimal fit, function, and aesthetics.</p>
+                         <ul>
+                            <li>Full & Partial Dentures</li>
+                            <li>Flexible Partials</li>
+                            <li>Digital Dentures</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="product-card" data-product="Orthodontics">
+                    <img src="https://zahnarztzentrum.ch/storage/behandlungen/aligner.jpg" alt="Aligner" style="object-fit: contain; padding: 20px;">
+                    <div class="product-content">
+                        <h3>Orthodontics</h3>
+                        <p>A range of appliances to facilitate tooth movement and retention, including modern clear aligner solutions.</p>
+                         <ul>
+                            <li>Clear Aligners</li>
+                            <li>Hawley & Essix Retainers</li>
+                            <li>Space Maintainers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="labs-by-product-view" style="display: none;">
+            <div class="dashboard-header">
+                <h1 id="labs-by-product-title" class="hero-title" style="font-size: 42px;"></h1>
+                <p class="hero-subtitle">The following labs offer this product. Click on a lab to see more details.</p>
+                <button id="back-to-products" class="btn btn-dentist">Back to Products</button>
+            </div>
+            <div id="labs-by-product-list" class="labs-list"></div>
+        </div>
+
+    </main>
+
+    <div id="lab-modal" class="modal">
+        <div class="modal-content"><span class="close-button">&times;</span><div id="modal-lab-details"></div></div>
+    </div>
+
+    <script src="app.js"></script>
+    <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3 class="logo">DentoRX</h3>
+            <p>The leading digital marketplace connecting dentists with premier dental laboratories across the globe.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Find a Lab</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="dashboard-dentist.html">My Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Lab Verification T&C</a></li>
+            </ul>
+        </div>
+          <div class="footer-contact">
+             <h4>Contact Us</h4>
+             <p>support@dentorx.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 DentoRX. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

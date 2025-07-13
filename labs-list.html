@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentoRX - Advanced Dental Lab Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">DentoRX</a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Find a Lab</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="dashboard-dentist.html" class="btn btn-dentist">Doctor Dashboard</a>
+                    <a href="dashboard-lab.html" class="btn btn-lab">Lab Dashboard</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Your Perfect Dental Lab is a Click Away</h1>
+                <p class="hero-subtitle">The premier marketplace connecting dentists with elite dental laboratories. Search by name, location, or specialization.</p>
+                <div class="search-and-filters">
+                    <div class="search-container">
+                        <input type="text" id="search-bar" placeholder="Search for labs or specializations (e.g., Implants)...">
+                    </div>
+                    <div class="filters-container">
+                        <label class="filter-checkbox"><input type="checkbox" id="rush-filter"> ⚡ Rush Orders</label>
+                        <label class="filter-checkbox"><input type="checkbox" id="verified-filter"> ✔️ DentoRX Verified</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="labs-section">
+            <div class="container">
+                <div id="labs-list" class="labs-list"></div>
+                <div id="no-results"><h3>No Labs Found</h3><p>Try adjusting your search or filters.</p></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="lab-modal" class="modal">
+        <div class="modal-content"><span class="close-button">&times;</span><div id="modal-lab-details"></div></div>
+    </div>
+
+    <script src="app.js"></script>
+    <footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <h3 class="logo">DentoRX</h3>
+            <p>The leading digital marketplace connecting dentists with premier dental laboratories across the globe.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Find a Lab</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="dashboard-dentist.html">My Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Lab Verification T&C</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+             <h4>Contact Us</h4>
+             <p>support@dentorx.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 DentoRX. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

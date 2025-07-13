@@ -992,7 +992,10 @@ label.required::after {
 #implant-modal-cancel{
     width: 80px; 
     padding: 16px; 
-    background: var(--accent-gradient); 
+    background: white; 
+    border-color: red;
+    border-width: 2px;
+    color: white; 
     color: white; 
     border: none; 
     border-radius: 8px; 

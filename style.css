@@ -748,3 +748,228 @@ nav { display: flex; justify-content: space-between; align-items: center; }
         width: 80%;
     }
 }
+/* --- Add these styles to your style.css file --- */
+
+/* Form Toggle Buttons */
+.form-toggle-buttons {
+    display: flex;
+    border-radius: 8px;
+    background-color: var(--light-bg-color);
+    padding: 5px;
+    border: 1px solid var(--border-color);
+}
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-light);
+    border-radius: 6px;
+    transition: all var(--transition-speed);
+}
+.toggle-btn.active {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+/* Form Structure & Fieldsets */
+.form-fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px 25px;
+    margin-top: 25px;
+}
+.form-legend {
+    padding: 0 10px;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 16px;
+}
+.section-divider-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 18px;
+    margin: 40px 0 10px 0;
+    font-weight: 900;
+}
+label.required::after {
+    content: ' *';
+    color: var(--attention-color);
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+
+/* Tooth Selection Grid */
+.tooth-selection-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fdfdfd;
+    padding: 15px;
+    border-radius: 8px;
+}
+.tooth-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.tooth-row > span {
+    font-weight: 700;
+    color: var(--text-light);
+    width: 25px;
+}
+.tooth-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+.tooth-label {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 4px;
+    min-width: 25px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.tooth-label:hover {
+    background-color: #e6f6ff;
+}
+.tooth-label input[type="checkbox"] {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+/* Style the number span when checkbox is checked */
+.tooth-label input[type="checkbox"]:checked + span {
+    color: var(--secondary-color);
+    font-weight: 900;
+}
+
+/* Selected Teeth Display */
+.selected-teeth-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background: var(--light-bg-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.selected-quadrant span {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* Prosthetic Plan & Radio Buttons */
+.radio-group-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+}
+.radio-group-inline > div:first-of-type {
+    display: flex;
+    gap: 15px;
+}
+.radio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+.radio-group label {
+    font-weight: 500;
+}
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Final Details */
+.impression-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Responsive adjustments for the new form */
+@media (max-width: 768px) {
+    .radio-group-inline {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .impression-inputs {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+/* --- Add these styles to your style.css file --- */
+
+/* Modal Title and Actions */
+.modal-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Make modal form labels have more emphasis */
+#implant-details-form .form-group label {
+    font-weight: 700;
+}
+
+/* Ensure consistent modal styling with the rest of the site */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(27, 58, 87, 0.7);
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px 40px;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideIn 0.4s ease-out;
+}
+
+/* Keyframes for modal animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

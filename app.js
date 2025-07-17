@@ -227,10 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================================
     if(document.getElementById('lab-dashboard-container')) {
         const labOrders = [
-            { id: 'DENT701', dentist: 'Dr. Mehta', due: 'July 10, 2025', status: 'In Production', priority: 'Normal' },
+            { id: 'DENT701', dentist: 'Dr. Sandra', due: 'July 10, 2025', status: 'In Production', priority: 'Normal' },
             { id: 'DENT708', dentist: 'Dr. Singh', due: 'July 8, 2025', status: 'Order Submitted', priority: 'Rush' },
-            { id: 'DENT704', dentist: 'Dr. Patel', due: 'July 11, 2025', status: 'Order Submitted', priority: 'Normal' },
-            { id: 'DENT705', dentist: 'Dr. Gupta', due: 'July 14, 2025', status: 'In Production', priority: 'Normal' },
+            { id: 'DENT704', dentist: 'Dr. Mike', due: 'July 11, 2025', status: 'Order Submitted', priority: 'Normal' },
+            { id: 'DENT705', dentist: 'Dr. Anderson', due: 'July 14, 2025', status: 'In Production', priority: 'Normal' },
         ];
 
         document.getElementById('stat-new-orders').textContent = labOrders.filter(o => o.status === 'Order Submitted').length;
